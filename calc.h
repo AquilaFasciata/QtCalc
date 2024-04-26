@@ -19,10 +19,6 @@ public:
 
 private slots:
 
-    void on_box2_valueChanged(double arg1);
-
-    void on_box1_valueChanged(double arg1);
-
 private:
     Ui::calc *ui;
 };
