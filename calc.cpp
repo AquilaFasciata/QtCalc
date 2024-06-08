@@ -1,5 +1,6 @@
 #include "calc.h"
 #include "./ui_calc.h"
+#include <cmath>
 
 
 calc::calc(QWidget *parent)
@@ -17,22 +18,25 @@ calc::calc(QWidget *parent)
 }
 
 int calc::appendInputBuff(int num) {
-    static int numOfDecOps = 0;
-    inputBuffer *= 10;
-
-    if (nextIsDec) {
-        for (int i = 0; i < numOfDecOps; i++) {
-            inputBuffer *= 10;
-        }
+    static int decOps = 1;
+    double decBuffer = 0.0;
+    if (inputBuffer == 0) {
+        nextIsDec = false;
+        decOps = 1;
     }
 
-    inputBuffer += num;
+
+    if (nextIsDec) {
+        decBuffer = num;
+        decBuffer /= pow(10, decOps);
+        inputBuffer += decBuffer;
+        decOps++;
+    }
+    else {
+        inputBuffer *= 10;
+        inputBuffer += num;
+    }
     ui->lcdNumber->display(inputBuffer);
-    if (nextIsDec) {
-        for (int i = 0; i == numOfDecOps; i++) {
-            inputBuffer /= 10;
-        }
-    }
     return inputBuffer;
 }
 
