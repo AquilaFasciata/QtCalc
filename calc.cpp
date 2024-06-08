@@ -20,7 +20,7 @@ calc::calc(QWidget *parent)
 int calc::appendInputBuff(int num) {
     static int decOps = 1;
     double decBuffer = 0.0;
-    if (inputBuffer == 0) {
+    if (inputBuffer == 0 && decOps > 1) {
         nextIsDec = false;
         decOps = 1;
     }
