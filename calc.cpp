@@ -17,9 +17,22 @@ calc::calc(QWidget *parent)
 }
 
 int calc::appendInputBuff(int num) {
+    static int numOfDecOps = 0;
     inputBuffer *= 10;
+
+    if (nextIsDec) {
+        for (int i = 0; i < numOfDecOps; i++) {
+            inputBuffer *= 10;
+        }
+    }
+
     inputBuffer += num;
     ui->lcdNumber->display(inputBuffer);
+    if (nextIsDec) {
+        for (int i = 0; i == numOfDecOps; i++) {
+            inputBuffer /= 10;
+        }
+    }
     return inputBuffer;
 }
 
@@ -90,7 +103,7 @@ void calc::on_zeroButton_clicked()
 
 void calc::on_decButton_clicked()
 {
-    calc::appendInputBuff()
+
 }
 
 
