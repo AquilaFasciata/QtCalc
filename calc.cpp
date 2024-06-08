@@ -103,7 +103,7 @@ void calc::on_zeroButton_clicked()
 
 void calc::on_decButton_clicked()
 {
-
+    nextIsDec = true;
 }
 
 
