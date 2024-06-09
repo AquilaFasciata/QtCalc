@@ -55,6 +55,8 @@ private slots:
 
     void on_lcdNumber_overflow();
 
+    void on_actionClear_triggered();
+
 private:
     double  runningTotal;
     double  inputBuffer;

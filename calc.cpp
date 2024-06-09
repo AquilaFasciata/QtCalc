@@ -146,3 +146,11 @@ void calc::on_lcdNumber_overflow()
     ui->lcdNumber->setDigitCount(ui->lcdNumber->digitCount() + 1);
 }
 
+
+void calc::on_actionClear_triggered()
+{
+    inputBuffer = 0.0;
+    nextIsDec = false;
+    ui->lcdNumber->display(inputBuffer);
+}
+

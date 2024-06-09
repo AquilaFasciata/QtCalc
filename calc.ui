@@ -187,6 +187,15 @@
     </item>
     <item row="2" column="0">
      <layout class="QHBoxLayout" name="rowTwo">
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
       <item>
        <widget class="QPushButton" name="fourButton">
         <property name="sizePolicy">
@@ -664,6 +673,24 @@
    </property>
   </action>
  </widget>
+ <tabstops>
+  <tabstop>oneButton</tabstop>
+  <tabstop>twobutton</tabstop>
+  <tabstop>threeButton</tabstop>
+  <tabstop>fourButton</tabstop>
+  <tabstop>fiveButton</tabstop>
+  <tabstop>sixButton</tabstop>
+  <tabstop>sevenButton</tabstop>
+  <tabstop>eightButton</tabstop>
+  <tabstop>nineButton</tabstop>
+  <tabstop>zeroButton</tabstop>
+  <tabstop>decButton</tabstop>
+  <tabstop>eqButton</tabstop>
+  <tabstop>plusButton</tabstop>
+  <tabstop>minusButton</tabstop>
+  <tabstop>multButton</tabstop>
+  <tabstop>divButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
