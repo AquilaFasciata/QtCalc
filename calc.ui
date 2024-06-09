@@ -666,6 +666,9 @@
    <property name="text">
     <string>Clear</string>
    </property>
+   <property name="shortcut">
+    <string>Del</string>
+   </property>
   </action>
   <action name="actionEmpty_History">
    <property name="text">

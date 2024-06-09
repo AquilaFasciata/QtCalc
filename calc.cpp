@@ -2,6 +2,14 @@
 #include "./ui_calc.h"
 #include <cmath>
 
+int numPlaces(int num) {
+    int places = 0;
+    do {
+        num /= 10;
+        places++;
+    }   while (num > 10);
+    return places;
+}
 
 calc::calc(QWidget *parent)
     : QMainWindow(parent)
@@ -13,13 +21,17 @@ calc::calc(QWidget *parent)
     std::vector<double> prevInputsBuffer;
     prevInputsBuffer.reserve(2);
     std::map<char, std::vector<int>> operationIndicies;
-
     ui->setupUi(this);
 }
 
 int calc::appendInputBuff(int num) {
     static int decOps = 1;
     double decBuffer = 0.0;
+
+
+    if (
+
+    // This should only be a case when using an operator or clearing input
     if (inputBuffer == 0 && decOps > 1) {
         nextIsDec = false;
         decOps = 1;
@@ -36,8 +48,19 @@ int calc::appendInputBuff(int num) {
         inputBuffer *= 10;
         inputBuffer += num;
     }
+
     ui->lcdNumber->display(inputBuffer);
     return inputBuffer;
+}
+
+int calc::appendOperator(char op) {
+    static int index = 0;
+    operationIndicies[op].push_back(index);
+    index++;
+
+    inputBuffer = 0.0;
+    ui->lcdNumber->display(inputBuffer);
+    return index;
 }
 
 calc::~calc()
@@ -119,25 +142,25 @@ void calc::on_eqButton_clicked()
 
 void calc::on_plusButton_clicked()
 {
-
+    calc::appendOperator('+');
 }
 
 
 void calc::on_minusButton_clicked()
 {
-
+    calc::appendOperator('-');
 }
 
 
 void calc::on_multButton_clicked()
 {
-
+    calc::appendOperator('*');
 }
 
 
 void calc::on_divButton_clicked()
 {
-
+    calc::appendOperator('/');
 }
 
 

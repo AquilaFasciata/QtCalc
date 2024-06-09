@@ -65,5 +65,6 @@ private:
     std::map<char, std::vector<int>> operationIndicies;
     Ui::calc *ui;
     int appendInputBuff(int num);
+    int appendOperator(char op);
 };
 #endif // CALC_H
